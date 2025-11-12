@@ -213,6 +213,12 @@
         line-height: 1.5;
         color: rgba(148, 163, 184, 1);
       }
+      .contact {
+        text-align: center;
+        font-size: 18px;
+        line-height: 1.5;
+        color: rgba(148, 163, 184, 1);
+      }
 
       .hex {
         width: 200px;
@@ -325,61 +331,27 @@
       <section id="experience" class="section">EXPERIENCE</section>
       <section id="skills" class="section">SKILLS</section>
       <section id="projects" class="section">PROJECTS</section>
-      <section id="contact" class="section">CONTACT</section>
+      <section id="contact" class="section">Let's Connect 
+      </br>
+      <div class="contact">
+        </br>
+      Leave a message below, and i'll get back to you as soon as possible.
+      </br>
+      <div style="text-align: left; display: inline-block; margin-top: 20px;">
+      Name<br><input type="text" name="name" /></br></br>
+      Email<br><input type="email" name="email" /></br></br>
+      Message<br><textarea name="message" rows="7" cols="50"></textarea></br>
+      <button type="submit">Send Message</button>
+      </div>
+      </div>
+      </section>
     </main>
 
     <footer class="site-footer">
       <div class="container">✨ Crafted & Created by SM ✨</div>
     </footer>
 
-    <script>
-      // mobile menu toggle
-      const toggleBtn = document.querySelector(".nav-toggle");
-      const nav = document.querySelector(".nav");
-      const header = document.querySelector(".site-header");
-
-      toggleBtn?.addEventListener("click", () => {
-        const open = header.classList.toggle("nav-open");
-        toggleBtn.setAttribute("aria-expanded", open ? "true" : "false");
-        nav.classList.toggle("show", open);
-      });
-
-      // close the menu when a link is clicked (mobile)
-      nav?.querySelectorAll("a").forEach((a) => {
-        a.addEventListener("click", () => {
-          header.classList.remove("nav-open");
-          nav.classList.remove("show");
-          toggleBtn?.setAttribute("aria-expanded", "false");
-        });
-      });
-
-      // highlight active link on scroll
-      const links = [...document.querySelectorAll(".nav a")];
-      const sections = links
-        .map((link) => document.querySelector(link.getAttribute("href")))
-        .filter(Boolean);
-
-      const setActive = () => {
-        let current = null;
-        const y =
-          window.scrollY +
-          (parseInt(
-            getComputedStyle(document.documentElement).getPropertyValue("--h")
-          ) || 64) +
-          20;
-        for (const sec of sections) {
-          if (sec.offsetTop <= y) current = sec;
-        }
-        links.forEach((l) =>
-          l.classList.toggle(
-            "active",
-            current && l.getAttribute("href") === "#" + current.id
-          )
-        );
-      };
-
-      window.addEventListener("scroll", setActive, { passive: true });
-      window.addEventListener("load", setActive);
-    </script>
+    <script  src="main.js"></script>
+      
   </body>
 </html>
